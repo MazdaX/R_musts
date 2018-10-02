@@ -38,6 +38,19 @@ options(verbose = TRUE, digits=22)
 #Installing packages with multiple cores (R v > 3.5) ==> making compilation of gcc compiler much faster e.g. iCore7 8nct
 install.packages("MASS",Ncpus = 8)
 
+
+##+++++++++++++++++++++++++++++++++PERCISION limits of R engine (Machine dependent)+++++++++++++++++++++++++++++++##
+#The defualt floating print limit of the R is 7 and could be pushed by options to 22 max but it deosn't change the eps limit e-16
+noquote(unlist(format(.Machine)))
+             double.eps          double.neg.eps             double.xmin             double.xmax             double.base 
+ 2.2204460492503131e-16  1.1102230246251565e-16 2.2250738585072014e-308 1.7976931348623157e+308                       2 
+          double.digits         double.rounding            double.guard       double.ulp.digits   double.neg.ulp.digits 
+                     53                       5                       0                     -52                     -53 
+        double.exponent          double.min.exp          double.max.exp             integer.max             sizeof.long 
+                     11                   -1022                    1024              2147483647                       4 
+        sizeof.longlong       sizeof.longdouble          sizeof.pointer 
+                      8                      16                       8
+
 #qnorm for polishing the p value distribution before coverting to Z distribution.
 function(p, eps = 1e-16){
   if(p[which(p > (1-eps))]){
@@ -46,6 +59,8 @@ function(p, eps = 1e-16){
                 z=qnorm(eps)}
   return(z)
 }
+
+
 
 #Converter of choice for many ocasions that numbers are parsed as factor by mistake.
 factor2numeric<- function (f) {
