@@ -48,6 +48,27 @@ noquote(unlist(format(.Machine)))
                      11                   -1022                    1024              2147483647                       4 
         sizeof.longlong       sizeof.longdouble          sizeof.pointer 
                       8                      16                       8
+#Another way of printing the same thing (cleaner)
+str(.Machine)
+List of 18
+ $ double.eps           : num 2.22e-16
+ $ double.neg.eps       : num 1.11e-16
+ $ double.xmin          : num 2.23e-308
+ $ double.xmax          : num 1.8e+308
+ $ double.base          : int 2
+ $ double.digits        : int 53
+ $ double.rounding      : int 5
+ $ double.guard         : int 0
+ $ double.ulp.digits    : int -52
+ $ double.neg.ulp.digits: int -53
+ $ double.exponent      : int 11
+ $ double.min.exp       : int -1022
+ $ double.max.exp       : int 1024
+ $ integer.max          : int 2147483647
+ $ sizeof.long          : int 4
+ $ sizeof.longlong      : int 8
+ $ sizeof.longdouble    : int 16
+ $ sizeof.pointer       : int 8
 
 #qnorm for polishing the p value distribution before coverting to Z distribution.
 function(p, eps = 1e-16){
