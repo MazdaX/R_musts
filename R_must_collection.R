@@ -31,13 +31,11 @@ for (a in apps) {
   }
 }
 
-
-#Issues with decimal limits (digits could be 1..22 the default is 7 for printing and return)
-options(verbose = TRUE, digits=22)
-
 #Installing packages with multiple cores (R v > 3.5) ==> making compilation of gcc compiler much faster e.g. iCore7 8nct
 install.packages("MASS",Ncpus = 8)
 
+#Issues with decimal limits (digits could be 1..22 the default is 7 for printing and return)
+options(verbose = TRUE, digits=22)
 
 ##+++++++++++++++++++++++++++++++++PERCISION limits of R engine (Machine dependent)+++++++++++++++++++++++++++++++##
 #The defualt floating print limit of the R is 7 and could be pushed by options to 22 max but it deosn't change the eps limit e-16
@@ -60,7 +58,7 @@ function(p, eps = 1e-16){
   return(z)
 }
 
-
+##==================================================================================================================##
 
 #Converter of choice for many ocasions that numbers are parsed as factor by mistake.
 factor2numeric<- function (f) {
