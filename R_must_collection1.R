@@ -86,3 +86,7 @@ factor2numeric<- function (f) {
   as.numeric(as.character(f))
 }
 
+###===================================================================================================================##
+#73 unique colours
+pals<-brewer.pal.info[brewer.pal.info$category == 'qual',]
+pals_vector<-unlist(mapply(brewer.pal, pals$maxcolors, rownames(pals)))
